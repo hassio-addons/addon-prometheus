@@ -1,6 +1,4 @@
 #!/usr/bin/with-contenv bashio
-# shellcheck disable=SC2191
-
 bashio::log.info 'Starting prometheus config generator...'
 
 if [[ ! -d /share/promethus/targets ]] ; then
