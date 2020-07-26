@@ -6,7 +6,8 @@ if [[ ! -d /share/promethus/targets ]] ; then
   chown -R prometheus:prometheus /share/prometheus/targets
 fi
 
-cd /opt/prometheus-configgen
+cd /opt/prometheus-configgen || bashio::exit.nok \
+  "Could not change working directory for prometheus-configgen."
 
 # Run Prometheus
 exec s6-setuidgid prometheus python3 combiner
