@@ -16,12 +16,19 @@ RUN \
     ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
     \
-    && apk update \
-    && apk --no-cache add python3 py3-idna py3-certifi py3-chardet py3-yaml py3-urllib3 py3-requests \
-    && apk --no-cache add --virtual builddeps py-pip \
+    && apk --no-cache add \
+        python3 \
+        py3-idna \
+        py3-certifi \
+        py3-chardet \
+        py3-yaml \
+        py3-urllib3 \
+        py3-requests \
+    && apk --no-cache add --virtual .builddeps \
+        py-pip \
     \
     && curl -J -L -o /tmp/prometheus.tar.gz \
-        https://github.com/prometheus/prometheus/releases/download/v${PROMETHEUS_VERSION}/prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}.tar.gz \
+        "https://github.com/prometheus/prometheus/releases/download/v${PROMETHEUS_VERSION}/prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}.tar.gz" \
     && adduser -s /bin/false -D -H prometheus \
     && cd /tmp \
     && tar -xvf /tmp/prometheus.tar.gz \
@@ -32,8 +39,15 @@ RUN \
     && cp -R prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}/consoles/ /etc/prometheus/ \
     && rm -r prometheus-${PROMETHEUS_VERSION}.linux-${ARCH} \
     && chown -R prometheus:prometheus /etc/prometheus \
-    && pip3 install -r /opt/prometheus-configgen/requirements.txt \
-    && apk del builddeps
+    && pip3 install \
+        --no-cache-dir \
+        --prefer-binary \
+        --find-links "https://wheels.home-assistant.io/alpine-3.12/${BUILD_ARCH}/" \
+        -r /opt/prometheus-configgen/requirements.txt \
+    \
+    && apk --no-cache del .builddeps \
+    && rm -f -r \
+        /tmp/*
 
 # Build arguments
 ARG BUILD_DATE

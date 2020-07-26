@@ -104,8 +104,6 @@ SOFTWARE.
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
 [forum]: https://example.net
 [mjrider]: https://github.com/mjrider
-[github-sponsors-shield]: https://frenck.dev/wp-content/uploads/2019/12/github_sponsor.png
-[github-sponsors]: https://github.com/sponsors/frenck
 [gitlabci-shield]: https://gitlab.com/hassio-addons/addon-prometheus/badges/master/pipeline.svg
 [gitlabci]: https://gitlab.com/hassio-addons/addon-prometheus/pipelines
 [i386-shield]: https://img.shields.io/badge/i386-no-red.svg
