@@ -1,0 +1,103 @@
+#!/usr/bin/env python
+
+import sys
+import asyncio
+import aionotify
+import yaml
+import os
+import tempfile
+import requests
+
+from yamlinclude import YamlIncludeConstructor
+
+
+def generateConfig():
+    YamlIncludeConstructor.add_to_loader_class(
+        loader_class=yaml.FullLoader, base_dir="/share/prometheus/"
+    )
+
+    with open("prometheus.template") as f:
+        data = yaml.load(f, Loader=yaml.FullLoader)
+
+    data["scrape_configs"] = (
+        data[".scrape_configs_static"] + data[".scrape_configs_included"]
+    )
+    del data[".scrape_configs_static"]
+    del data[".scrape_configs_included"]
+    return yaml.dump(data, default_flow_style=False, default_style="")
+
+
+def testConfig(config):
+    tmp = None
+    result = False
+    try:
+        tmp = tempfile.NamedTemporaryFile()
+        with open(tmp.name, "w") as f:
+            f.write(config)
+        r = os.system("promtool check config " + tmp.name + "> /dev/null")
+        result = r == 0
+    except:
+        print("Failed to validate")
+        raise
+    if result == False:
+        raise Exception("validation error")
+    return result
+
+
+def writeConfig(config, file):
+    try:
+        with open(file, "w") as f:
+            f.write(config)
+        r = requests.post(url="http://localhost:9090/-/reload", data={})
+    except:
+        print("Exception")
+        pass
+
+
+loop = asyncio.get_event_loop()
+paths_to_watch = ["/share/prometheus/targets/"]
+
+lock = asyncio.Lock()
+
+
+async def compile():
+    if lock.locked() == False:
+        await lock.acquire()
+        try:
+            config = generateConfig()
+            testConfig(config)
+            writeConfig(config, "/etc/prometheus/prometheus.yml")
+            print("Compiled")
+        except:
+            pass
+        finally:
+            lock.release()
+
+
+async def watcher():
+    asyncio.create_task(compile())
+    filewatch = aionotify.Watcher()
+    for path in paths_to_watch:
+        filewatch.watch(
+            path,
+            aionotify.Flags.MODIFY | aionotify.Flags.CREATE | aionotify.Flags.DELETE,
+        )
+        print(path)
+    await filewatch.setup(loop)
+    while True:
+        event = await filewatch.get_event()
+        sys.stdout.write("Got event: %s\n" % repr(event))
+        asyncio.create_task(compile())
+    filewatch.close()
+
+
+def main():
+    try:
+        loop.run_until_complete(watcher())
+    finally:
+        # loop.close()
+        pass
+
+
+if __name__ == "__main__":
+    main()

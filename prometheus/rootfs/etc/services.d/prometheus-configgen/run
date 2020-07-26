@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck disable=SC2191
+
+bashio::log.info 'Starting prometheus config generator...'
+
+if [[ ! -d /share/promethus/targets ]] ; then
+  mkdir -p /share/prometheus/targets
+  chown -R prometheus:prometheus /share/prometheus/targets
+fi
+
+cd /opt/prometheus-configgen
+
+# Run Prometheus
+exec s6-setuidgid prometheus python3 combiner
