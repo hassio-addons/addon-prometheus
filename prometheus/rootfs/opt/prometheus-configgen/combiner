@@ -39,7 +39,7 @@ def testConfig(config):
     except:
         print("Failed to validate")
         raise
-    if result == False:
+    if not result:
         raise Exception("validation error")
     return result
 
@@ -51,7 +51,6 @@ def writeConfig(config, file):
         r = requests.post(url="http://localhost:9090/-/reload", data={})
     except:
         print("Exception")
-        pass
 
 
 loop = asyncio.get_event_loop()
