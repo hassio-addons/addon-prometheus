@@ -12,20 +12,21 @@ ENV PROMETHEUS_VERSION=2.19.2
 # Copy root filesystem
 COPY rootfs /
 
+# hadolint ignore=DL3003
 RUN \
     ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
     \
     && apk --no-cache add \
-        python3 \
-        py3-idna \
-        py3-certifi \
-        py3-chardet \
-        py3-yaml \
-        py3-urllib3 \
-        py3-requests \
+        python3=3.8.5-r0 \
+        py3-idna=2.9-r0 \
+        py3-certifi=2020.4.5.1-r0 \
+        py3-chardet=3.0.4-r4 \
+        py3-yaml=5.3.1-r0 \
+        py3-urllib3=1.25.9-r0 \
+        py3-requests=2.23.0-r0 \
     && apk --no-cache add --virtual .builddeps \
-        py-pip \
+        py-pip=20.1.1-r0 \
     \
     && curl -J -L -o /tmp/prometheus.tar.gz \
         "https://github.com/prometheus/prometheus/releases/download/v${PROMETHEUS_VERSION}/prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}.tar.gz" \
