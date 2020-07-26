@@ -36,17 +36,17 @@ static_configs:
 
 **Note**: _This is just an example, don't copy and paste it! Create your own!_
 
-
 The job names `home-assistant` and `prometheus` are already defined by default.
 
-Rules can be created under /share/prometheus/rules/
+Rules can be created under `/share/prometheus/rules/`
 
-The addon will reload the configuration if a valid configuration is available. If not it will log errors in the addon log
+The addon will reload the configuration if a valid configuration is available.
+If not it will log errors in the addon log
 
 ## Known issues and limitations
 
-* Job name must be unique, but this has to be enforced by the user.
-* no alert manager yet
+- Job name must be unique, but this has to be enforced by the user.
+- no alert manager yet
 
 ## Changelog & Releases
 
@@ -88,7 +88,7 @@ check [the contributor's page][contributors].
 
 MIT License
 
-Copyright (c) 2018-2020 Franck Nijhof
+Copyright (c) 2020-2020 Robbert Müller
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
