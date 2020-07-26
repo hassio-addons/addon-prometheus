@@ -16,7 +16,6 @@ RUN \
     ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
     \
-    && apk update \
     && apk --no-cache add \
         python3 \
         py3-idna \
@@ -40,8 +39,15 @@ RUN \
     && cp -R prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}/consoles/ /etc/prometheus/ \
     && rm -r prometheus-${PROMETHEUS_VERSION}.linux-${ARCH} \
     && chown -R prometheus:prometheus /etc/prometheus \
-    && pip3 install -r /opt/prometheus-configgen/requirements.txt \
-    && apk --no-cache del .builddeps
+    && pip3 install \
+        --no-cache-dir \
+        --prefer-binary \
+        --find-links "https://wheels.home-assistant.io/alpine-3.12/${BUILD_ARCH}/" \
+        -r /opt/prometheus-configgen/requirements.txt \
+    \
+    && apk --no-cache del .builddeps \
+    && rm -f -r \
+        /tmp/*
 
 # Build arguments
 ARG BUILD_DATE
