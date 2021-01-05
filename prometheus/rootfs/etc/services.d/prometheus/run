@@ -31,12 +31,12 @@ if [[ ! -d /data/prometheus ]] ; then
   chown prometheus:prometheus /data/prometheus
 fi
 
-if [[ ! -d /share/promethus/rules ]] ; then
+if [[ ! -d /share/prometheus/rules ]] ; then
   mkdir -p /share/prometheus/rules
   chown -R prometheus:prometheus /share/prometheus/rules
 fi
 
-if [[ ! -d /share/promethus/targets ]] ; then
+if [[ ! -d /share/prometheus/targets ]] ; then
   mkdir -p /share/prometheus/targets
   chown -R prometheus:prometheus /share/prometheus/targets
 fi
