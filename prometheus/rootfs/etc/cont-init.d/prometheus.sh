@@ -3,4 +3,4 @@
 # Home Assistant Community Add-on: Prometheus
 # Configures Prometheus
 # ==============================================================================
-echo "${HASSIO_TOKEN}" > '/run/home-assistant.token'
+echo "${SUPERVISOR_TOKEN}" > '/run/home-assistant.token'
