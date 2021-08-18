@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 bashio::log.info 'Starting prometheus config generator...'
 
-if [[ ! -d /share/promethus/targets ]] ; then
+if ! bashio::fs.directory_exists /share/prometheus/targets; then
   mkdir -p /share/prometheus/targets
   chown -R prometheus:prometheus /share/prometheus/targets
 fi

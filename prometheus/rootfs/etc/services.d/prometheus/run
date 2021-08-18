@@ -26,17 +26,17 @@ for var in $(bashio::config 'env_vars|keys'); do
     export "${name}=${value}"
 done
 
-if [[ ! -d /data/prometheus ]] ; then
+if ! bashio::fs.directory_exists /data/prometheus; then
   mkdir -p /data/prometheus
   chown prometheus:prometheus /data/prometheus
 fi
 
-if [[ ! -d /share/promethus/rules ]] ; then
+if ! bashio::fs.directory_exists /share/prometheus/rules; then
   mkdir -p /share/prometheus/rules
   chown -R prometheus:prometheus /share/prometheus/rules
 fi
 
-if [[ ! -d /share/promethus/targets ]] ; then
+if ! bashio::fs.directory_exists /share/prometheus/targets; then
   mkdir -p /share/prometheus/targets
   chown -R prometheus:prometheus /share/prometheus/targets
 fi
