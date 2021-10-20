@@ -19,5 +19,11 @@
   },
   "ports_description": {
     "9090/tcp": "Not required for Ingress"
+  },
+  "schema": {
+    "retention_days": "int"
+  },
+  "options": {
+    "retention_days": 15
   }
 }

@@ -17,7 +17,10 @@ comparison to installing any other Home Assistant add-on.
 
 ## Configuration
 
-There are no configuration options for the addon.
+### Option: `retention_days`
+
+Specify when to remove old data.
+
 
 To add additional scrape targets you need to create a file per target in /share/prometheus/targets.
 

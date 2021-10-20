@@ -12,6 +12,7 @@ bashio::log.info 'Starting prometheus...'
 
 options+=(--config.file="/etc/prometheus/prometheus.yml" )
 options+=(--storage.tsdb.path="/data/prometheus" )
+options+=(--storage.tsdb.retention.time=$(bashio::config 'retention_days')d)
 options+=(--web.console.libraries="/usr/share/prometheus/console_libraries" )
 options+=(--web.console.templates="/usr/share/prometheus/consoles" )
 options+=(--web.route-prefix="/" )
