@@ -70,7 +70,7 @@ our [GitHub Repository][repository].
 
 MIT License
 
-Copyright (c) 2020-2020 Robbert Müller
+Copyright (c) 2020-2022 Robbert Müller
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -109,7 +109,7 @@ SOFTWARE.
 [i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 [issue]: https://github.com/hassio-addons/addon-prometheus/issues
 [license-shield]: https://img.shields.io/github/license/hassio-addons/addon-prometheus.svg
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2022.svg
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-Development-yellowgreen.svg
 [reddit]: https://reddit.com/r/homeassistant
 [releases-shield]: https://img.shields.io/github/release/hassio-addons/addon-prometheus.svg
