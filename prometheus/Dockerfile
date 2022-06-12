@@ -7,7 +7,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base system
 ARG BUILD_ARCH=amd64
-ENV PROMETHEUS_VERSION=2.34.0
+ENV PROMETHEUS_VERSION=2.36.1
 
 # Copy root filesystem
 COPY rootfs /
