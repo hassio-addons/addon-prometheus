@@ -9,6 +9,7 @@ startup: services
 ingress: true
 ingress_port: 9090
 ingress_entry: graph
+init: false
 panel_icon: mdi:chart-timeline
 panel_title: Prometheus
 arch:
