@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:11.1.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:12.0.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -18,15 +18,15 @@ RUN \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
     \
     && apk --no-cache add \
-        python3=3.9.7-r4 \
-        py3-idna=3.3-r0 \
-        py3-certifi=2020.12.5-r1 \
-        py3-chardet=4.0.0-r2 \
-        py3-yaml=5.4.1.1-r1 \
-        py3-urllib3=1.26.7-r0 \
-        py3-requests=2.26.0-r1 \
+        python3=3.10.4-r \
+        py3-idna=3.3-r2 \
+        py3-certifi=2021.10.8-r0 \
+        py3-chardet=4.0.0-r3 \
+        py3-yaml=6.0-r0 \
+        py3-urllib3=1.26.9-r0 \
+        py3-requests=2.27.1-r0 \
     && apk --no-cache add --virtual .builddeps \
-        py-pip=20.3.4-r1 \
+        py-pip=22.1.1-r0 \
     \
     && curl -J -L -o /tmp/prometheus.tar.gz \
         "https://github.com/prometheus/prometheus/releases/download/v${PROMETHEUS_VERSION}/prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}.tar.gz" \
