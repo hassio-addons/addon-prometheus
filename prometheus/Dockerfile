@@ -43,7 +43,7 @@ RUN \
     && pip3 install \
         --no-cache-dir \
         --prefer-binary \
-        --find-links "https://wheels.home-assistant.io/alpine-3.15/${BUILD_ARCH}/" \
+        --find-links "https://wheels.home-assistant.io/alpine-3.14/${BUILD_ARCH}/" \
         -r /opt/prometheus-configgen/requirements.txt \
     \
     && apk --no-cache del .builddeps \
