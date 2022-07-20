@@ -12,8 +12,8 @@ bashio::log.info 'Starting prometheus...'
 
 options+=(--config.file="/etc/prometheus/prometheus.yml" )
 options+=(--storage.tsdb.path="/data/prometheus" )
-options+=(--web.console.libraries="/usr/share/prometheus/console_libraries" )
-options+=(--web.console.templates="/usr/share/prometheus/consoles" )
+options+=(--web.console.libraries="/etc/prometheus/console_libraries" )
+options+=(--web.console.templates="/etc/prometheus/consoles" )
 options+=(--web.route-prefix="/" )
 options+=(--web.external-url="http://localhost:9090$(bashio::addon.ingress_entry)/" )
 options+=(--web.enable-lifecycle )
