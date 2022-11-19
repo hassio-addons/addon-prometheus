@@ -1,17 +1,18 @@
 # Home Assistant Community Add-on: Prometheus
 
-....
+`WARNING : This add-on are only available in edge Homeassistant add-on repository.`
 
 ## Installation
 
 The installation of this add-on is pretty straightforward and not different in
 comparison to installing any other Home Assistant add-on.
 
-1. Search for the "Prometheus" add-on in the Supervisor add-on store.
-1. Install the "Prometheus" add-on.
-1. Start the "Prometheus" add-on.
-1. Check the logs of the "Prometheus" to see if everything went well.
-1. Open the Web UI.
+1. Add edge repository https://github.com/hassio-addons/repository-edge to the Supervisor add-on store
+2. Search for the "Prometheus" add-on in the Supervisor add-on store.
+3. Install the "Prometheus" add-on.
+4. Start the "Prometheus" add-on.
+5. Check the logs of the "Prometheus" to see if everything went well.
+6. Open the Web UI.
 
 **Note**: The addon supports both Ingress and direct access, this is the default
 
