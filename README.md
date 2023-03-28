@@ -102,7 +102,7 @@ SOFTWARE.
 [discord]: https://discord.me/hassioaddons
 [docs]: https://github.com/hassio-addons/addon-prometheus/blob/master/prometheus/DOCS.md
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
-[forum]: https://example.net
+[forum]: https://community.home-assistant.io/
 [mjrider]: https://github.com/mjrider
 [gitlabci-shield]: https://gitlab.com/hassio-addons/addon-prometheus/badges/master/pipeline.svg
 [gitlabci]: https://gitlab.com/hassio-addons/addon-prometheus/pipelines
