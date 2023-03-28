@@ -7,7 +7,7 @@
 The installation of this add-on is pretty straightforward and not different in
 comparison to installing any other Home Assistant add-on.
 
-1. Search for the "Prometheus" add-on in the Supervisor add-on store.
+1. Search for the "Prometheus" add-on in the add-on store. (**Settings** -> **Add-ons** -> **Add-on store**)
 1. Install the "Prometheus" add-on.
 1. Start the "Prometheus" add-on.
 1. Check the logs of the "Prometheus" to see if everything went well.
@@ -120,12 +120,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[contributors]: https://github.com/hassio-addons/addon-Prometheus/graphs/contributors
+[contributors]: https://github.com/hassio-addons/addon-prometheus/graphs/contributors
 [discord-ha]: https://discord.gg/c5DvZ4e
 [discord]: https://discord.me/hassioaddons
-[forum]: https://example.net
+[forum]: https://community.home-assistant.io/
 [mjrider]: https://github.com/mjrider
 [issue]: https://github.com/hassio-addons/addon-prometheus/issues
 [reddit]: https://reddit.com/r/homeassistant
 [releases]: https://github.com/hassio-addons/addon-prometheus/releases
-[semver]: http://semver.org/spec/v2.0.0.htm
+[semver]: https://semver.org/spec/v2.0.0.html
