@@ -95,12 +95,12 @@ SOFTWARE.
 [armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-prometheus.svg
-[commits]: https://github.com/hassio-addons/addon-prometheus/commits/master
+[commits]: https://github.com/hassio-addons/addon-prometheus/commits/main
 [contributors]: https://github.com/hassio-addons/addon-prometheus/graphs/contributors
 [discord-ha]: https://discord.gg/c5DvZ4e
 [discord-shield]: https://img.shields.io/discord/478094546522079232.svg
 [discord]: https://discord.me/hassioaddons
-[docs]: https://github.com/hassio-addons/addon-prometheus/blob/master/prometheus/DOCS.md
+[docs]: https://github.com/hassio-addons/addon-prometheus/blob/main/prometheus/DOCS.md
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
 [forum]: https://example.net
 [mjrider]: https://github.com/mjrider
