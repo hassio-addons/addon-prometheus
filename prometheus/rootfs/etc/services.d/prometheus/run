@@ -38,5 +38,9 @@ if ! bashio::fs.directory_exists /share/prometheus/targets; then
   mkdir -p /share/prometheus/targets
 fi
 
+if ! bashio::fs.directory_exists /share/prometheus/remotes; then
+  mkdir -p /share/prometheus/remotes
+fi
+
 # Run Prometheus
 exec /usr/local/bin/prometheus "${options[@]}"

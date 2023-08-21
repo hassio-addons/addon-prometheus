@@ -22,6 +22,11 @@ def generateConfig():
     )
     del data[".scrape_configs_static"]
     del data[".scrape_configs_included"]
+
+    if len(data[".remote_write_included"]) > 0:
+        data["remote_write"] = data[".remote_write_included"]
+
+    del data[".remote_write_included"]
     return yaml.dump(data, default_flow_style=False, default_style="")
 
 
@@ -52,7 +57,7 @@ def writeConfig(config, file):
 
 
 loop = asyncio.get_event_loop()
-paths_to_watch = ["/share/prometheus/targets/"]
+paths_to_watch = ["/share/prometheus/targets/", "/share/prometheus/remotes"]
 
 lock = asyncio.Lock()
 

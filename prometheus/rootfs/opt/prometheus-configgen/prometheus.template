@@ -16,7 +16,6 @@ alerting:
 rule_files:
   - "/share/prometheus/rules/*.yaml"
 
-
 .scrape_configs_included: !include targets/*.yaml
 .scrape_configs_static:
   - job_name: 'home-assistant'
@@ -36,3 +35,5 @@ rule_files:
 
     static_configs:
     - targets: ['localhost:9090']
+
+.remote_write_included: !include remotes/*.yaml

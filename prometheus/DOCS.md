@@ -19,7 +19,7 @@ comparison to installing any other Home Assistant add-on.
 
 There are no configuration options for the addon.
 
-To add additional scrape targets you need to create a file per target in /share/prometheus/targets.
+To add additional scrape targets you need to create a file per target in `/share/prometheus/targets`.
 
 Example:
 
@@ -35,6 +35,22 @@ static_configs:
 ```
 
 **Note**: _This is just an example, don't copy and paste it! Create your own!_
+
+Similarly, to set up remotes for Prometheus `remote_write` feature, you need to create a file per remote in `/share/prometheus/remotes`.
+
+Example to write to a Grafana Cloud Prometheus endpoint:
+
+```yaml
+url: https://prometheus-prod-01-eu-west-0.grafana.net/api/prom/push
+basic_auth:
+  username: <your username>
+  password: <Your API key>
+write_relabel_configs:
+  - target_label: instance
+    replacement: dev-container
+```
+
+The above example also changes the `instance` label to the `dev-container` value.
 
 The job names `home-assistant` and `prometheus` are already defined by default.
 For the `homeassistant` target you must add add the following to
