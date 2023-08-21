@@ -28,18 +28,15 @@ done
 
 if ! bashio::fs.directory_exists /data/prometheus; then
   mkdir -p /data/prometheus
-  chown prometheus:prometheus /data/prometheus
 fi
 
 if ! bashio::fs.directory_exists /share/prometheus/rules; then
   mkdir -p /share/prometheus/rules
-  chown -R prometheus:prometheus /share/prometheus/rules
 fi
 
 if ! bashio::fs.directory_exists /share/prometheus/targets; then
   mkdir -p /share/prometheus/targets
-  chown -R prometheus:prometheus /share/prometheus/targets
 fi
 
 # Run Prometheus
-exec s6-setuidgid prometheus /usr/local/bin/prometheus "${options[@]}"
+exec /usr/local/bin/prometheus "${options[@]}"
