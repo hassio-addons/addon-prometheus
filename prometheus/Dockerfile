@@ -30,7 +30,6 @@ RUN \
     \
     && curl -J -L -o /tmp/prometheus.tar.gz \
         "https://github.com/prometheus/prometheus/releases/download/v${PROMETHEUS_VERSION}/prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}.tar.gz" \
-    && adduser -s /bin/false -D -H prometheus \
     && cd /tmp \
     && tar -xvf /tmp/prometheus.tar.gz \
     && mkdir -p /etc/prometheus \
@@ -39,7 +38,6 @@ RUN \
     && cp -R prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}/console_libraries/ /etc/prometheus/ \
     && cp -R prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}/consoles/ /etc/prometheus/ \
     && rm -r prometheus-${PROMETHEUS_VERSION}.linux-${ARCH} \
-    && chown -R prometheus:prometheus /etc/prometheus \
     && pip3 install \
         --no-cache-dir \
         --prefer-binary \
